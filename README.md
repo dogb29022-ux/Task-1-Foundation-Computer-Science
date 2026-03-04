@@ -4,9 +4,15 @@
 The practical implementation and analysis for Task 1 of the Foundation of Computer Science (ST4015CMD) module may be found in this repository. In order to guarantee safe and effective data transfer, the project investigates how encoding formats like Base64, ASCII, and URL encoding interact with contemporary protocols (HTTPS, TLS, SMTP).
 
 ## Learning Outcomes
-* Analyze the impact of data storage and processing in computer systems[cite: 29].
-* Evaluate the role of cryptography and encoding in keeping data secure[cite: 28].
+* Analyze the impact of data storage and processing in computer systems.
+* Evaluate the role of cryptography and encoding in keeping data secure.
+
 ## Quick Start
+```sql
+#clone the repo
+git clone https://github.com/dogb29022-ux/Task-1-Foundation-Computer-Science.git
+cd Task-1-Foundation-Computer-Science
+```
 
 ## Project Structure
 ```sql
