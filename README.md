@@ -9,11 +9,13 @@ The practical implementation and analysis for Task 1 of the Foundation of Comput
 ## Quick Start
 
 ## Project Structure
+```sql
 Task-1-Foundation-Computer-Science/
 ├── README.md               (The project overview)
 ├── scripts/
 |
 ├── diagrams/
+```
 
 ## Live Demonstrations
 
@@ -29,8 +31,18 @@ Task-1-Foundation-Computer-Science/
 * Enforce Secure Protocols (TLS 1.3): Encoding such as Base64 should never be used in place of encryption because it is easily reversible by anybody. To stop interceptors from just decoding the communication, all encoded data should be sent via a secure tunnel using TLS 1.3.
 
 ## Further Enhancement 
+In order to demonstrate "Critical Analysis," which is necessary for a grade of 70% or higher, suggest the following improvements over simple encoding:
+
+* Switch to Base85 for Efficiency: Base85 (ASCII85) is more efficient, increasing data size by about 25%, whereas Base64 increases it by roughly 33%. Suggest this for programs requiring a lot of bandwidth, such as Git internal storage or Adobe PostScript.
+
+* Implementation of JWT (JSON Web Tokens): It is recommended to use JWTs for session management rather to just Base64 strings. These ensure that the data is both URL-safe and tamper-proof by using Base64URL encoding along with a digital signature.
+
+* Binary-to-Text Optimization in IoT: CBOR (Concise Binary Object Representation) is recommended as an alternative to JSON/Base64 for low-power IoT devices. It improves performance in limited contexts by being made for small code and message sizes.
+
+* Automated Secret Scanning: Include Git-Secrets and TruffleHog in your GitHub workflow. When critical Base64-encoded strings, such as API keys, are inadvertently committed to your repository, these tools automatically identify it.
+
+## License
+This project is license under MIT License. See more about [License](https://github.com/dogb29022-ux/Task-1-Foundation-Computer-Science/blob/main/LICENSE) here.
 
 ## Author
 - **Shreejan Byanju**
-
-## License
