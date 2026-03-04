@@ -1,16 +1,32 @@
 # Task-1-Foundation-Computer-Science
 
 ## Overview
+The practical implementation and analysis for Task 1 of the Foundation of Computer Science (ST4015CMD) module may be found in this repository. In order to guarantee safe and effective data transfer, the project investigates how encoding formats like Base64, ASCII, and URL encoding interact with contemporary protocols (HTTPS, TLS, SMTP).
 
 ## Learning Outcomes
-
+* Analyze the impact of data storage and processing in computer systems[cite: 29].
+* Evaluate the role of cryptography and encoding in keeping data secure[cite: 28].
 ## Quick Start
 
 ## Project Structure
+Task-1-Foundation-Computer-Science/
+├── README.md               (The project overview)
+├── scripts/
+|
+├── diagrams/
 
 ## Live Demonstrations
 
 ## Preventive Measures
+* Although encoding (Base64, URL, Hex) is necessary for data interoperability, it is frequently abused or exploited. These particular precautions should be recorded in your repository:
+
+* Sanitization Prior to Encoding: Never encode user input that hasn't been verified. To get over simple firewalls, malicious scripts (XSS) or SQL instructions can be "hidden" within Base64 strings. Prior to processing, data should always be verified against an allowlist.
+
+* Context-Aware Decoding: Make sure the server-side decoding procedure precisely corresponds to the client-side encoding. Inconsistencies in this area may result in "Double Encoding" attacks, in which an attacker encodes a payload twice in order to evade a security filter that only decodes once.
+
+* Integrity Checks (Hashing): There is no security or integrity provided by encoding. Always couple encoded data with a cryptographic hash (such as SHA-256) or a Message Authentication Code (MAC) to guard against data manipulation during transmission.
+
+* Enforce Secure Protocols (TLS 1.3): Encoding such as Base64 should never be used in place of encryption because it is easily reversible by anybody. To stop interceptors from just decoding the communication, all encoded data should be sent via a secure tunnel using TLS 1.3.
 
 ## Further Enhancement 
 
