@@ -71,7 +71,7 @@ Subject: Base64 Lab
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: base64
 
-SGVsbG8gV29ybGQh
+iVBORw0KGgoAAAANSUhEUgAABLcAAAL
 .
 ```
 
