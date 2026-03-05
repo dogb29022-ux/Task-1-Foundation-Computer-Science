@@ -24,9 +24,70 @@ Task-1-Foundation-Computer-Science/
 ```
 
 ## Live Demonstrations
+**Tools used**
+
+1. Base64 one
+2. Wireshark
+
+**Procedure**
+**Step 1: opening the Base64 one and inserting the data.**
+First, we'll launch the Base64 One program. It is a free program that demonstrates how Base64 encoding is used to transform data into ASCII text.
+
+<img src="/Diagrams/base64_one.png" height="300" width="500">
+
+**Step 2: Inserting the data and encoding it int the base64 format.**
+We will enter the text and encode it in Base64 format once the tool has been opened.
+
+<img src="/Diagrams/encodded to base64.png" height="300" width="500">
+
+**Step 3: Launch Wireshark in loopback mode, then filter the packets for TCP.**
+To begin capturing the packet, we first launch Wireshark in loopback mode. "tcp.port == 1025" must be entered in the filter bar.Next, we press the start button to begin packet capture.
+
+<img src="/Diagrams/" height="300" width="500">
+
+**Step 4: Establishing a testing environment locally**
+On our computer, we will set up a localized testing environment. It implies that our gadget will be both the transmitter and the recipient.
+
+Initially, we will use the library aiosmtpd to establish a receiver. We must install the aiosmtpd first because it is not preloaded. Thus, we must launch Powershell and enter this command.
+
+```sql
+pip install aiosmtpd
+```
+We will set up a channel to receive the package after installing aiosmtpd. We will use the command below to accomplish that.
+```sql
+aiosmtpd -n -l localhost:1025
+```
+Next, we'll set up a sender in the terminal. The commands listed below must be run in order to accomplish that.
+```sql
+telnet localhost 1025
+EHLO localhost
+MAIL FROM:<test@me.com>
+RCPT TO:<you@me.com>
+DATA
+```
+This command must then be entered in order to send the SMTP package.
+```sql
+Subject: Base64 Lab
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+
+SGVsbG8gV29ybGQh
+.
+```
+
+**Step 5: Using Wireshark to capture the packet.**
+Once the packets are sent, Wireshark begins to capture them and shows the captured packet.
+
+<img src="/Diagrams/port.png" height="300" width="500">
+
+Next, we must right-click on it, navigate to the Follow section, and hit Ctrl+Alt+Shift+T. The details of the captured packet will be displayed when the new window opens.
+
+<img src="/Diagrams/captured encoding.png" height="300" width="500">
+
+We may observe that the original converted text in the Base64 one tool and the captured packet during transmission have the identical Base64 encoded code.
 
 ## Preventive Measures
-* Although encoding (Base64, URL, Hex) is necessary for data interoperability, it is frequently abused or exploited. These particular precautions should be recorded in your repository:
+* Although encoding (Base64, URL, Hex) is necessary for data interoperability, it is frequently abused or exploited. These particular precautions should be recorded in your repository
 
 * Sanitization Prior to Encoding: Never encode user input that hasn't been verified. To get over simple firewalls, malicious scripts (XSS) or SQL instructions can be "hidden" within Base64 strings. Prior to processing, data should always be verified against an allowlist.
 
