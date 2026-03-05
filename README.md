@@ -43,7 +43,7 @@ We will enter the text and encode it in Base64 format once the tool has been ope
 **Step 3: Launch Wireshark in loopback mode, then filter the packets for TCP.**
 To begin capturing the packet, we first launch Wireshark in loopback mode. "tcp.port == 1025" must be entered in the filter bar.Next, we press the start button to begin packet capture.
 
-<img src="/Diagrams/" height="300" width="500">
+<img src="/Diagrams/wireshark.png" height="300" width="500">
 
 **Step 4: Establishing a testing environment locally**
 On our computer, we will set up a localized testing environment. It implies that our gadget will be both the transmitter and the recipient.
